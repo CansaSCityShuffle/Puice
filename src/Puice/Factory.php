@@ -67,7 +67,6 @@ class Factory
      */
     public function create($classType, $className = 'default')
     {
-        $clazz = $this->getDependency($classType, $className, true);
         $reflection = new \ReflectionClass($classType);
         $constructorReflection = $reflection->getConstructor();
 
@@ -101,7 +100,15 @@ class Factory
     private function getDependency($type, $name, $isOptional = false)
     {
         $dependency = $this->_config->get($type, $name);
+
+        if ($type != "string" && is_string($dependency) && class_exists($dependency)) {
+            echo "type is not string but the value is";
+            return $this->create($dependency);
+        }
+
         if ($dependency != null || $isOptional) {
+            echo "type is an instance";
+            var_dump($dependency);
             return $dependency;
         }
 
