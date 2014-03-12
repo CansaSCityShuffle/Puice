@@ -145,11 +145,14 @@ class FeatureContext extends BehatContext
      * @Then /^both instances should (|not )have the same instance of \'([^\']*)\'$/
      */
     public function bothInstancesShouldHaveTheSameInstanceOf($not, $property) {
+        if (is_null($this->subject2)) {
+            $this->subject2 = $this->subject->other;
+        }
+
         if ($not == "not ") {
             assertEquals(true, $this->subject->$property !== $this->subject2->$property);
         } else {
             assertEquals(true, $this->subject->$property === $this->subject2->$property);
         }
     }
-
 }

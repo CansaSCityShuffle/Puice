@@ -102,13 +102,10 @@ class Factory
         $dependency = $this->_config->get($type, $name);
 
         if ($type != "string" && is_string($dependency) && class_exists($dependency)) {
-            echo "type is not string but the value is";
             return $this->create($dependency);
         }
 
         if ($dependency != null || $isOptional) {
-            echo "type is an instance";
-            var_dump($dependency);
             return $dependency;
         }
 

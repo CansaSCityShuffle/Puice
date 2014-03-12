@@ -61,8 +61,7 @@ Feature: Puice
             """
 
         When I call create on this class
-        And create '%some_class%2'
-        Then both instances should not have the same instance of 'config'
+        Then both instances should have the same instance of 'config'
 
 
     Scenario: Entrypoints do not share dependencies
