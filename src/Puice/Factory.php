@@ -101,6 +101,10 @@ class Factory
     {
         $dependency = $this->_config->get($type, $name);
 
+        if (is_object($dependency)) {
+            return $dependency;
+        }
+
         if ($type != "string" && is_string($dependency) && class_exists($dependency)) {
             return $this->create($dependency);
         }

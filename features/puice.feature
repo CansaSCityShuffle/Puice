@@ -28,7 +28,7 @@ Feature: Puice
         Given the Environment variable 'APP_CONFIG' is set to '/tmp/puice_global_dependency.inc.php'
         And there is a file '/tmp/puice_global_dependency.inc.php' with:
             """
-            $config->set('Puice\Config', 'globalConfig',
+            $config->set('Puice\Config', 'config',
                 $puice->create('Puice\Config\DefaultConfig')
             );
             """
@@ -68,9 +68,7 @@ Feature: Puice
         Given the Environment variable 'APP_CONFIG' is set to '/tmp/puice_global_dependency.inc.php'
         And there is a file '/tmp/puice_global_dependency.inc.php' with:
             """
-            $config->set('Puice\Config', 'globalConfig',
-                $puice->create('Puice\Config\DefaultConfig')
-            );
+            $config->set('Puice\Config', 'config', 'Puice\Config\DefaultConfig');
             """
         And I have a Class:
             """
