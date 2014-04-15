@@ -120,7 +120,6 @@ class FactorySpec extends ObjectBehavior
         Config $config
     ) {
         $className = 'spec\Puice\DependencyWithSomeInterface';
-        var_dump(class_exists($className));
 
         $subject = $this->create($className);
         $subject->shouldHaveType($className);
