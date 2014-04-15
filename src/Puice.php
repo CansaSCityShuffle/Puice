@@ -24,7 +24,7 @@ use Puice\Config;
  * @package    Puice
  * @copyright  Copyright (c) 2014 Alwin Mark
  */
-class Puice implements Config
+class Puice implements Config, Container
 {
 
     private $_appConfig = null;
